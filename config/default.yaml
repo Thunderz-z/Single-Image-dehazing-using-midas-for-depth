@@ -1,0 +1,36 @@
+seed: 42
+experiment_name: depth_guided_aodnet
+
+data:
+  reside_root: archive/RESIDE-6K
+  ohaze_root: o-haze/O-HAZY
+  depth_cache_root: artifacts/depth_cache
+  image_size: 384
+  num_workers: 4
+  pin_memory: true
+  train_batch_size: 2
+  val_batch_size: 2
+
+model:
+  beta_min: 0.3
+  beta_max: 2.0
+
+train:
+  epochs: 25
+  lr: 0.0002
+  weight_decay: 0.0001
+  amp: false
+  grad_clip_norm: 1.0
+  save_dir: checkpoints
+  validate_every: 1
+
+loss:
+  l1_weight: 1.0
+  ssim_weight: 0.3
+  edge_weight: 0.2
+  depth_reg_weight: 0.1
+  physics_weight: 0.2
+
+eval:
+  save_visuals: true
+  visual_dir: outputs/val_visuals

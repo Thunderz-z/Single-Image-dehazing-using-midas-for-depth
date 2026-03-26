@@ -1,0 +1,38 @@
+Depth-Guided Dehazing Final Results
+========================================
+
+Bundle path: outputs\final_results_bundle_20260314_142906
+Generated at: 2026-03-14T14:29:59
+
+Quantitative Evaluation
+------------------------------
+reside: PSNR=20.6789, SSIM=0.8730
+reside: BRISQUE=24.4387
+ohaze: PSNR=15.7868, SSIM=0.6812
+ohaze: BRISQUE=14.2745
+
+Training Summary (Latest Run)
+------------------------------
+Epochs completed: 25
+Best validation point: epoch=23, val_psnr=20.6819, val_ssim=0.8735 (87.35%)
+
+Qualitative and Comparison Notes
+------------------------------
+Sample-based mean PSNR (packaged examples): 19.3048
+Sample-based mean SSIM (packaged examples): 0.7453 (74.53%)
+Visual observations: depth-guided outputs reduce haze veil and improve edge visibility in most packaged examples.
+
+Output Inventory
+------------------------------
+1. quantitative/eval_metrics_full.json
+2. quantitative/sample_metrics.csv
+3. visual_graphs/training_curves.png
+4. inference/*.png
+5. comparisons/*.png
+6. maps/*_depth.png and *_transmission.png
+
+Accuracy Target Note
+------------------------------
+Dehazing is not a classification task, so accuracy is not a standard metric.
+Equivalent quality interpretation is usually SSIM percentage.
+This run reaches >=70-80% quality on RESIDE via SSIM; O-HAZY remains harder and typically lower.
